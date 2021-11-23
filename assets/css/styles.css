@@ -1,0 +1,252 @@
+@import url("https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@200&family=Lora:wght@500;700&family=Montserrat:wght@400;500;700&family=PT+Serif:ital,wght@0,700;1,400&family=Poppins:wght@400;600&display=swap");
+:root {
+  --white: #ffffff;
+  --black: #181719;
+  --gray: #828282;
+  --gray2: #a9a9a9;
+  --montserrat: "Montserrat", sans-serif;
+  --lora: "Lora", serif;
+  --crismon: "Crimson Pro", serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--black);
+  font-family: var(--montserrat);
+  font-size: 100%;
+  color: var(--white);
+  line-height: 1.5;
+  letter-spacing: 0.5px;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul,
+li {
+  list-style: none;
+}
+img {
+  width: 100%;
+}
+
+.header {
+  height: 70px;
+  padding-inline: 10px;
+}
+
+.header .nav {
+  max-width: 1440px;
+  height: 100%;
+  margin-inline: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header .logo-name {
+  padding: 8px;
+  font-family: var(--crismon);
+  font-size: 14px;
+  border: 1px solid var(--white);
+}
+
+.header .logo-name:hover {
+  background-color: var(--white);
+  color: var(--black);
+  transition: 0.3 all ease-in-out;
+}
+
+.header button {
+  padding: 0;
+  position: relative;
+  width: 28px;
+  height: 18px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  z-index: 3;
+}
+
+.header button span {
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 2.5px;
+  background-color: var(--white);
+  transition: 0.3s all;
+}
+
+.header button span:nth-child(1) {
+  top: 0;
+}
+.header button span:nth-child(3) {
+  top: 18px;
+}
+
+.header button.active span:nth-child(1) {
+  top: 10px;
+  transform: rotate(135deg);
+}
+.header button.active span:nth-child(2) {
+  opacity: 0;
+}
+.header button.active span:nth-child(3) {
+  top: 10px;
+  transform: rotate(-135deg);
+}
+
+.header .menu {
+  padding-inline: 0;
+  text-align: center;
+  display: grid;
+  grid-template-columns: repeat(4, 95px);
+  gap: 32px;
+}
+
+.header .menu a:hover {
+  border-bottom: 2px solid var(--white);
+}
+
+.header .menu li a {
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.header .menu li:hover a {
+  font-weight: 700;
+}
+
+.main {
+  width: 100%;
+  max-width: 1440px;
+  margin-inline: auto;
+  padding-inline: 10px;
+  min-height: calc(100vh - (70px + 53px + 5rem));
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px 0;
+}
+
+.main .text {
+  max-width: 400px;
+}
+.main .text h1 {
+  margin-block-end: 30px;
+  font-family: var(--lora);
+  font-size: 48px;
+  font-weight: 500;
+}
+
+.main .text p {
+  font-size: clamp(14px, 4vw, 18px);
+}
+
+.main .text a {
+  display: inline-block;
+  margin-block-start: 30px;
+  font-weight: 700;
+}
+
+.main .text span {
+  margin-inline-start: 10px;
+  transition: 0.3s all ease-in-out;
+}
+
+.main .text a:hover span {
+  margin-inline-start: 15px;
+  transition: 0.3s all ease-in-out;
+}
+.main .image {
+  position: relative;
+}
+
+.card-image {
+  position: absolute;
+  bottom: -15%;
+  right: 5%;
+  min-width: 280px;
+  max-width: 420px;
+  padding: 24px 26px;
+  background-color: #181719;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.card-image h2 {
+  font-family: var(--lora);
+  font-weight: 700;
+  font-size: clamp(18px, 2vw, 24px);
+}
+
+.card-image .card__profile {
+  margin-block-end: 25px;
+  display: flex;
+  gap: 20px;
+}
+.card-image .card__profile img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.card-image .card__profile .card__name p {
+  font-size: clamp(12px, 3vw, 14px);
+  font-weight: 500;
+}
+.card-image .card__profile .card__name span {
+  font-size: clamp(10px, 3vw, 12px);
+  color: var(--gray2);
+}
+
+.footer {
+  margin-block-start: 5rem;
+  padding-block: 1rem;
+  font-family: "Montserrat", sans-serif;
+  font-size: clamp(12px, 3vw, 14px);
+  text-align: center;
+  color: var(--gray);
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+@media screen and (min-width: 960px) {
+  .header button {
+    display: none;
+  }
+  .main .image {
+    width: calc(100% - (500px + 30px));
+  }
+}
+@media screen and (max-width: 959px) {
+  .header .menu {
+    position: absolute;
+    top: 0;
+    left: -110%;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+    transition: 0.3s ease-in-out;
+    z-index: 2;
+  }
+
+  .header .menu.active {
+    left: 0;
+    background-color: var(--black);
+    transition: 0.3s ease-in-out;
+  }
+}
